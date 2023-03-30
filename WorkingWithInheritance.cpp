@@ -92,7 +92,7 @@ int main()
 
 	// task #2 create authoriztion system based on class type
 	Teacher martin("Martin", 64, 'm', 72);
-	cout << authorize(martin.getRole()) << endl;
+	cout << '\n' << authorize(martin.getRole()) << endl;
 	cout << authorize(alex.getRole());
 
 }
