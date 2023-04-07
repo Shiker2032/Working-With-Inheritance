@@ -1,98 +1,54 @@
-﻿#include <iostream>
+﻿#include<iostream>
 #include<string.h>
 
 using namespace std;
 
-class Person {
-protected:
-	string name;
-	int age;
-	char gender;
-	float weight;
+class Function {
 public:
-	Person(string name, int age, char gender, float weight) {
-		this->name = name;
-		this->age = age;
-		this->gender = gender;
-		this->weight = weight;
-	}
-	void setName(string newName) {
-		this->name = newName;
-	}
-	void setAge(int newAge) {
-		this->age = newAge;
-	}
-	void setWeight(float newWeight) {
-		this->weight = newWeight;
-	}
-	void printInfo() {
-		cout << "name: " << this->name << ",";
-		cout << " age: " << this->age << ",";
-		cout << " weight " << this->weight << ",";
-	}
-	string getName() {
-		return this->name;
+	virtual void print(int x) {};
+};
+
+class Ellipse : public Function {
+public:
+	void print (int x) override 
+	{
+		cout << "Ellipse " << x << endl;
 	}
 };
 
-class Student : public Person {
-private:
-	int enrollYear;
-	string role = "Student";
+class Hiperbola : public Function {
 public:
-	Student(int enrollYear, string name, int age, char gender, float weight) :Person(name, age, gender, weight) {
-		this->enrollYear = enrollYear;
-	}
-	int getEnrollYear() {
-		return this->enrollYear;
-	}
-	void printInfo() {
-		Person::printInfo();
-		cout << " Enrolled years: " << this->enrollYear;
-	}
-	string getRole() {
-		return this->role;
+	void print(int x) override
+	{
+		cout << "Hiperbola  " << x << endl;
 	}
 };
 
-class Teacher : public Person {
-private:
-	int enrollYear;
-	string role = "Teacher";
+class Parabola : public Function {
 public:
-	Teacher(string name, int age, char gender, float weight) :Person(name, age, gender, weight) {
-		this->enrollYear = enrollYear;
-	}
-	void printInfo() {
-		Person::printInfo();
-		cout << " Enrolled years: " << this->enrollYear;
-	}
-	string getRole() {
-		return this->role;
+	void print(int x) override
+	{
+		cout << "Parabola  " << x << endl;
 	}
 };
 
-string authorize(string role) {
-	if (role == "Teacher") {
-		return "Teacher access";
-	}
-	if (role == "Student") {
-		return "Student access";
-	}
+int main () {
+	int x = 39;
+
+	Function* ptrEllips;
+	Function* ptrHiperb;
+	Function* ptrParab;
+	
+	Ellipse ellips;
+	Hiperbola hiperbola;
+	Parabola parab;
+
+	ptrEllips = &ellips;
+	ptrHiperb = &hiperbola;
+	ptrParab = &parab;
+
+	ptrEllips->print(x);
+	ptrHiperb->print(x);
+	ptrParab->print(x);
 }
 
-
-int main()
-{
-
-	//task #1 create example of studen inherited from person
-	Student alex(2, "Alex", 18, 'm', 64);
-	alex.printInfo();
-
-
-	// task #2 create authoriztion system based on class type
-	Teacher martin("Martin", 64, 'm', 72);
-	cout << '\n' << authorize(martin.getRole()) << endl;
-	cout << authorize(alex.getRole());
-
-}
