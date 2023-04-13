@@ -113,17 +113,20 @@ public:
 	}
 };
 
-//task #3 ==================================================================================================
-
-
-
-
 int main() {
 	Parallelogram par(3, 10);
 	Circle circ(25);
 	Reactangle rect(2, 4);
-	Square sq(4, 2);
+	Square sqr(4, 2);
 	Rhombus rhomb(3, 5);	
+
+	cout << "Parallelogram" << par.area() << endl;
+	cout << "Circle" << circ.area() << endl;
+	cout << "Reactangle" << rect.area() << endl;
+	cout << "square" << sqr.area() << endl;
+	cout << "Rhombus" << rhomb.area() << endl;	
+
+	cout << "\n==============Task 2==============" << endl;
 
 	MiniVan batmobile("Wayne inc", "tank");	
 };
