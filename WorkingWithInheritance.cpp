@@ -70,7 +70,7 @@ public:
 	}
 };
 
-// ==================================================================================
+// task #2 ==================================================================================
 
 class Car { //class Car
 protected: 
@@ -83,7 +83,7 @@ public:
 	{
 		this->_company = company;
 		this->_model = model;
-		cout << "Car::Car(int) called" << endl;
+		cout << "Car::constructor called" << endl;
 	}
 
 	void printInfo() 
@@ -95,23 +95,27 @@ public:
 class PassangerCar : virtual public Car { //class PassangerCar inherits Car
 public:
 	PassangerCar(string company, string model) :Car(company, model) {
-		cout << "PassangerCar::PassangerCar(int) called" << endl;
+		cout << "PassangerCar::constructor called" << endl;
 	}
 };
 
 class Bus : virtual public Car { //class Bus inherits Car
 public:
 	Bus(string company, string model) :Car(company, model) {
-		cout << "Bus::Bus(int) called" << endl;
+		cout << "Bus::constructor called" << endl;
 	}
 };
 
 class MiniVan : public PassangerCar, public Bus { //class MiniVan inherits PassangerCar and Bus
 public:
 	MiniVan(string company, string model) :Bus(company, model), PassangerCar(company, model) {
-		cout << "MiniVan::MiniVan(int) called" << endl;
+		cout << "MiniVan::constructor called" << endl;
 	}
 };
+
+//task #3 ==================================================================================================
+
+
 
 
 int main() {
